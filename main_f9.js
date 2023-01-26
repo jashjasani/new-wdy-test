@@ -11757,7 +11757,7 @@ ${o2(r)}`),
                         console.log(typeof(responseDoc));
                         console.log(responseDoc.body.querySelector('.content-wrapper'));
                         let replaceableDiv =
-                          responseDoc.querySelector(".content-wrapper");
+                          responseDoc.body.querySelector(".content-wrapper");
                         let pageTitle =
                           responseDoc.querySelector("title").textContent;
                         document.title = pageTitle;
