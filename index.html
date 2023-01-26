@@ -1,0 +1,149 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"></script>
+<script>
+function updateCurrentClass() {
+  $(".menu_link").removeClass("w--current");
+  $(".menu_link").each(function (index) {
+    if ($(this).attr("href") === window.location.pathname) {
+      $(this).addClass("w--current");
+    }
+  });
+}
+
+
+function setState(html, pageTitle, link) {
+  document.title = pageTitle;
+  window.history.pushState({ html: html, pageTitle: pageTitle }, "", link);
+}
+setState($(".content-wrapper").html(), document.title, window.location.href);
+
+// ON CLICK
+$(document).on("click", ".menu_link:not(.w--current)", function (e) {
+  e.preventDefault();
+  let nextPageLink = $(this).attr("href");
+  // AJAX
+  $.ajax({
+    url: nextPageLink,
+    success: function (response) {
+      let replaceableDiv = $(response).find(".content-wrapper");
+      let pageTitle = $(response).filter("title").text();
+      document.title = pageTitle;
+      setState(replaceableDiv.html(), pageTitle, nextPageLink);
+      let element = replaceableDiv.addClass("second");
+      $(".main-wrapper").append(element);
+    },
+    complete: function () {
+      updateCurrentClass();
+      pageTransition();
+    }
+  });
+});
+
+window.onpopstate = function (e) {
+  if (e.state) {
+    $(".content-wrapper").html(e.state.html);
+    document.title = e.state.pageTitle;
+    updateCurrentClass();
+  }
+};
+
+function pageTransition() {
+  $("html").addClass("animating");
+  // GSAP
+  let tl = gsap.timeline({
+    onComplete: updatePage
+  });
+  tl.from(".content-wrapper.second", {
+    y: "110vh",
+    delay: 0.2,
+    duration: 0.8,
+    ease: "power2.out"
+  });
+  tl.to(
+    ".overlay",
+    {
+      opacity: 1,
+      duration: 0.3,
+      ease: "power1.out"
+    },
+    0
+  );
+  tl.to(
+    ".content-wrapper.first",
+    {
+      scale: 0.95,
+      duration: 0.3,
+      ease: "power1.out"
+    },
+    0
+  );
+}
+
+function updatePage() {
+  $(window).scrollTop(0);
+  $(".content-wrapper.first").remove();
+  $(".content-wrapper.second").removeClass("second").addClass("first");
+  $(".overlay").css("opacity", "0");
+  $("html").removeClass("animating");
+}
+</script>
+
+
+
+<script>
+let duration = 400;
+let menuShape = $(".menu_shape");
+let menuShapeBG = $(".menu_shape-bg");
+let menuLink = $(".menu_link");
+let currentLink = $(".menu_link.w--current");
+
+// On page load
+moveShape(currentLink);
+$(".menu_link-bg").css("opacity", "0");
+menuShape.css("opacity", "1");
+menuLink.css("pointer-events", "auto");
+
+// On click
+menuLink.on("click", function (e) {
+  // Page url
+  e.preventDefault();
+  setTimeout(() => {
+    window.location = $(this).attr("href");
+  }, duration);
+  // menuShapeBG Stretch
+  if ($(this).index() > currentLink.index()) {
+    menuShape.css("justify-content", "flex-end");
+  }
+  if (currentLink.index() !== $(this).index()) {
+    menuShapeBG.css("transition", `width ${duration / 2}ms`);
+    menuShapeBG.css("width", "140%");
+    setTimeout(() => {
+      menuShapeBG.css("width", "100%");
+    }, duration / 2);
+  }
+  // menuShape move
+  menuShape.css("transition", `all ${duration}ms`);
+  moveShape($(this));
+});
+
+// Snap
+function moveShape(target) {
+  let linkWidth = target.innerWidth();
+  let linkOffset = target.offset().left;
+  let menuOffset = $(".menu").offset().left;
+  let leftPosition = linkOffset - menuOffset;
+  menuShape.css("left", leftPosition);
+  menuShape.css("width", linkWidth);
+}
+
+// Resize
+window.addEventListener("resize", function () {
+  moveShape(currentLink);
+});
+
+// Back button safari
+window.onpageshow = function (event) {
+  if (event.persisted) {
+    window.location.reload();
+  }
+};
+</script>

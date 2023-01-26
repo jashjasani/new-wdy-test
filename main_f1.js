@@ -11706,13 +11706,66 @@ ${o2(r)}`),
                 },
                 {
                   key: "focus",
-                  value: function () {
+                  value: function (e) {
                     this.focused ||
                       ((this.focused = !0),
                       (this.mesh.frustumCulled = !1),
                       (this.mesh.renderOrder = 10),
                       aX(aq(".js-grid-focused")),
-                      (console.log(this.text.innerText)));
+                      console.log(this.text.innerText));
+                    e.preventDefault();
+                    let nextPageLink = this.text.innerText;
+                    function pageTransition() {
+                      $("html").addClass("animating");
+                      // GSAP
+                      let tl = gsap.timeline({
+                        onComplete: updatePage
+                      });
+                      tl.from(".content-wrapper.second", {
+                        y: "110vh",
+                        delay: 0.2,
+                        duration: 0.8,
+                        ease: "power2.out"
+                      });
+                      tl.to(
+                        ".overlay",
+                        {
+                          opacity: 1,
+                          duration: 0.3,
+                          ease: "power1.out"
+                        },
+                        0
+                      );
+                      tl.to(
+                        ".content-wrapper.first",
+                        {
+                          scale: 0.95,
+                          duration: 0.3,
+                          ease: "power1.out"
+                        },
+                        0
+                      );
+                    }
+                    $.ajax({
+                      url: nextPageLink,
+                      success: function (response) {
+                        let replaceableDiv =
+                          $(response).find(".content-wrapper");
+                        let pageTitle = $(response).filter("title").text();
+                        document.title = pageTitle;
+                        setState(
+                          replaceableDiv.html(),
+                          pageTitle,
+                          nextPageLink
+                        );
+                        let element = replaceableDiv.addClass("second");
+                        $(".main-wrapper").append(element);
+                      },
+                      complete: function () {
+                        //updateCurrentClass();
+                        pageTransition();
+                      },
+                    });
                   },
                 },
                 {
