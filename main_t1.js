@@ -11766,6 +11766,8 @@ ${o2(r)}`),
                           pageTitle,
                           nextPageLink
                         );
+                        console.log(typeof(replaceableDiv));
+                        console.log(replaceableDiv);
                         let element = replaceableDiv.classList.add("second");
                         let element1 = document
                           .querySelector(".main-wrapper")
