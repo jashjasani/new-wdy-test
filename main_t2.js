@@ -11768,12 +11768,12 @@ ${o2(r)}`),
                         );
                         console.log(typeof(replaceableDiv));
                         console.log(replaceableDiv);
-                        let element = replaceableDiv.classList.add("second");
+                        //let element = replaceableDiv.classList.add("second");
                         let element1 = document
                           .querySelector(".main-wrapper")
                           console.log("Element 1",typeof(element1))
                           console.log("Element ",typeof(element));
-                          element1.appendChild(element)
+                          element1.appendChild(replaceableDiv)
                           
                       })
                       .catch((error) => console.error(error))
