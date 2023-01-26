@@ -11715,7 +11715,7 @@ ${o2(r)}`),
                       console.log(this.text.innerText));
                     let nextPageLink = this.text.innerText;
                     function pageTransition() {
-                      $("html").addClass("animating");
+                      document.querySelector("html").classList.add("animating");
                       // GSAP
                       let tl = gsap.timeline({
                         onComplete: updatePage,
