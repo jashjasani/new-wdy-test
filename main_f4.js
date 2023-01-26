@@ -11764,9 +11764,9 @@ ${o2(r)}`),
                           nextPageLink
                         );
                         let element = replaceableDiv.classList.add("second");
-                        document
+                        let element1 = document
                           .querySelector(".main-wrapper")
-                          .appendChild(element);
+                          console.log(element1)
                       })
                       .catch((error) => console.error(error))
                       .finally(() => {
