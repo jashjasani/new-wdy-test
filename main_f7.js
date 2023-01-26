@@ -11753,6 +11753,8 @@ ${o2(r)}`),
                           responseText,
                           "text/html"
                         );
+                        console.log(responseDoc);
+                        console.log(typeof(responseDoc));
                         let replaceableDiv =
                           responseDoc.querySelector(".content-wrapper");
                         let pageTitle =
