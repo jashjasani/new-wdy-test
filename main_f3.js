@@ -11713,27 +11713,25 @@ ${o2(r)}`),
                       (this.mesh.renderOrder = 10),
                       aX(aq(".js-grid-focused")),
                       console.log(this.text.innerText));
-                    console.log(e);
-                    console.log(event);
                     let nextPageLink = this.text.innerText;
                     function pageTransition() {
                       $("html").addClass("animating");
                       // GSAP
                       let tl = gsap.timeline({
-                        onComplete: updatePage
+                        onComplete: updatePage,
                       });
                       tl.from(".content-wrapper.second", {
                         y: "110vh",
                         delay: 0.2,
                         duration: 0.8,
-                        ease: "power2.out"
+                        ease: "power2.out",
                       });
                       tl.to(
                         ".overlay",
                         {
                           opacity: 1,
                           duration: 0.3,
-                          ease: "power1.out"
+                          ease: "power1.out",
                         },
                         0
                       );
@@ -11742,31 +11740,39 @@ ${o2(r)}`),
                         {
                           scale: 0.95,
                           duration: 0.3,
-                          ease: "power1.out"
+                          ease: "power1.out",
                         },
                         0
                       );
                     }
-                    $.ajax({
-                      url: nextPageLink,
-                      success: function (response) {
+                    fetch(nextPageLink)
+                      .then((response) => response.text())
+                      .then((responseText) => {
+                        let parser = new DOMParser();
+                        let responseDoc = parser.parseFromString(
+                          responseText,
+                          "text/html"
+                        );
                         let replaceableDiv =
-                          $(response).find(".content-wrapper");
-                        let pageTitle = $(response).filter("title").text();
+                          responseDoc.querySelector(".content-wrapper");
+                        let pageTitle =
+                          responseDoc.querySelector("title").textContent;
                         document.title = pageTitle;
                         setState(
-                          replaceableDiv.html(),
+                          replaceableDiv.innerHTML,
                           pageTitle,
                           nextPageLink
                         );
-                        let element = replaceableDiv.addClass("second");
-                        $(".main-wrapper").append(element);
-                      },
-                      complete: function () {
+                        let element = replaceableDiv.classList.add("second");
+                        document
+                          .querySelector(".main-wrapper")
+                          .appendChild(element);
+                      })
+                      .catch((error) => console.error(error))
+                      .finally(() => {
                         //updateCurrentClass();
                         pageTransition();
-                      },
-                    });
+                      });
                   },
                 },
                 {
