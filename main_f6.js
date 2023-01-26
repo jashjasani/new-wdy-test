@@ -11766,8 +11766,10 @@ ${o2(r)}`),
                         let element = replaceableDiv.classList.add("second");
                         let element1 = document
                           .querySelector(".main-wrapper")
+                          console.log("Element 1",typeof(element1))
+                          console.log("Element ",typeof(element));
                           element1.appendChild(element)
-                          console.log(element1)
+                          
                       })
                       .catch((error) => console.error(error))
                       .finally(() => {
