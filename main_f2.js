@@ -11713,7 +11713,8 @@ ${o2(r)}`),
                       (this.mesh.renderOrder = 10),
                       aX(aq(".js-grid-focused")),
                       console.log(this.text.innerText));
-                    e.preventDefault();
+                    console.log(e);
+                    console.log(event);
                     let nextPageLink = this.text.innerText;
                     function pageTransition() {
                       $("html").addClass("animating");
