@@ -11745,6 +11745,14 @@ ${o2(r)}`),
                         0
                       );
                     }
+                    function updateCurrentClass() {
+                      $(".menu_link").removeClass("w--current");
+                      $(".menu_link").each(function (index) {
+                        if ($(this).attr("href") === window.location.pathname) {
+                          $(this).addClass("w--current");
+                        }
+                      });
+                    }
                     fetch(nextPageLink)
                       .then((response) => response.text())
                       .then((responseText) => {
@@ -11773,12 +11781,12 @@ ${o2(r)}`),
                           .querySelector(".main-wrapper")
                           console.log("Element 1",typeof(element1))
                           console.log("Element ",typeof(element));
-                          element1.appendChild(replaceableDiv)
+                          element1.appendChild(replaceableDiv.classList.add('second'))
                           
                       })
                       .catch((error) => console.error(error))
                       .finally(() => {
-                        //updateCurrentClass();
+                        updateCurrentClass();
                         pageTransition();
                       });
                   },
