@@ -11781,7 +11781,8 @@ ${o2(r)}`),
                           .querySelector(".main-wrapper")
                           console.log("Element 1",typeof(element1))
                           console.log("Element ",typeof(element));
-                          element1.appendChild(replaceableDiv.classList.add('second'))
+                          replaceableDiv.className="content-wrapper second"
+                          element1.appendChild(replaceableDiv)
                           
                       })
                       .catch((error) => console.error(error))
