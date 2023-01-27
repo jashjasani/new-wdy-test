@@ -11714,6 +11714,11 @@ ${o2(r)}`),
                       aX(aq(".js-grid-focused")),
                       console.log(this.text.innerText));
                     let nextPageLink = this.text.innerText;
+                    function setState(html, pageTitle, link) {
+                      document.title = pageTitle;
+                      window.history.pushState({ html: html, pageTitle: pageTitle }, "", link);
+                    }
+                    setState(document.querySelector("html").innerHTML,"Work",window.location)
                     function updatePage() {
                       // Set the scroll position to the top of the page
                       window.scrollTo(0, 0);
