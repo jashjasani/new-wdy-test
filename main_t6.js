@@ -11746,12 +11746,20 @@ ${o2(r)}`),
                       );
                     }
                     function updateCurrentClass() {
-                      $(".menu_link").removeClass("w--current");
-                      $(".menu_link").each(function (index) {
-                        if ($(this).attr("href") === window.location.pathname) {
-                          $(this).addClass("w--current");
+                      // Get all elements with the class "menu_link"
+                      var menuLinks = document.getElementsByClassName("menu_link");
+                    
+                      // Remove the "w--current" class from all elements
+                      for (var i = 0; i < menuLinks.length; i++) {
+                        menuLinks[i].classList.remove("w--current");
+                      }
+                    
+                      // Loop through all elements again and add the "w--current" class to the element that has the same href as the current page's URL
+                      for (var i = 0; i < menuLinks.length; i++) {
+                        if (menuLinks[i].getAttribute("href") === window.location.pathname) {
+                          menuLinks[i].classList.add("w--current");
                         }
-                      });
+                      }
                     }
                     fetch(nextPageLink)
                       .then((response) => response.text())
@@ -11782,7 +11790,7 @@ ${o2(r)}`),
                           console.log("Element 1",typeof(element1))
                           console.log("Element ",typeof(element));
                           replaceableDiv.className="content-wrapper second"
-                          element1.appendChild(replaceableDiv)
+                          element1.appendChild(replaceableDiv.cloneNode(true))
                           
                       })
                       .catch((error) => console.error(error))
