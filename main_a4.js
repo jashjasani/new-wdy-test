@@ -11800,7 +11800,6 @@ ${o2(r)}`),
                           responseText,
                           "text/html"
                         );
-                        document.querySelector("#workStyles").remove()
                         console.log(responseDoc);
                         console.log(typeof(responseDoc));
                         console.log(responseDoc.body.querySelector('.content-wrapper'));
@@ -11814,6 +11813,7 @@ ${o2(r)}`),
                           pageTitle,
                           nextPageLink
                         );
+                        document.querySelector("#workStyles").remove()
                         console.log(typeof(replaceableDiv));
                         console.log(replaceableDiv);
                         //let element = replaceableDiv.classList.add("second");
