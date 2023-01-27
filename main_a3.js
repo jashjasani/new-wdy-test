@@ -11794,12 +11794,13 @@ ${o2(r)}`),
                     fetch(nextPageLink)
                       .then((response) => response.text())
                       .then((responseText) => {
-                        document.querySelector("#workStyles").remove()
+                        
                         let parser = new DOMParser();
                         let responseDoc = parser.parseFromString(
                           responseText,
                           "text/html"
                         );
+                        document.querySelector("#workStyles").remove()
                         console.log(responseDoc);
                         console.log(typeof(responseDoc));
                         console.log(responseDoc.body.querySelector('.content-wrapper'));
