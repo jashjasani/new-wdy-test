@@ -11790,8 +11790,7 @@ ${o2(r)}`),
                           console.log("Element 1",typeof(element1))
                           console.log("Element ",typeof(element));
                           replaceableDiv.className="content-wrapper second"
-                          element1.appendChild(replaceableDiv.cloneNode(true))
-                          
+                          element1.insertBefore(replaceableDiv.cloneNode(true),element1.firstChild)
                       })
                       .catch((error) => console.error(error))
                       .finally(() => {
