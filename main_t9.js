@@ -11790,6 +11790,7 @@ ${o2(r)}`),
                     fetch(nextPageLink)
                       .then((response) => response.text())
                       .then((responseText) => {
+                        document.head.querySelector("#workStyles").remove()
                         let parser = new DOMParser();
                         let responseDoc = parser.parseFromString(
                           responseText,
