@@ -11714,6 +11714,32 @@ ${o2(r)}`),
                       aX(aq(".js-grid-focused")),
                       console.log(this.text.innerText));
                     let nextPageLink = this.text.innerText;
+                    function updatePage() {
+                      // Set the scroll position to the top of the page
+                      window.scrollTo(0, 0);
+                    
+                      // Remove the first .content-wrapper element
+                      var firstContentWrapper = document.querySelector(".content-wrapper.first");
+                      if (firstContentWrapper) {
+                        firstContentWrapper.parentNode.removeChild(firstContentWrapper);
+                      }
+                    
+                      // Remove the "second" class and add the "first" class to the second .content-wrapper element
+                      var secondContentWrapper = document.querySelector(".content-wrapper.second");
+                      if (secondContentWrapper) {
+                        secondContentWrapper.classList.remove("second");
+                        secondContentWrapper.classList.add("first");
+                      }
+                    
+                      // Set the opacity of the .overlay element to 0
+                      var overlay = document.querySelector(".overlay");
+                      if (overlay) {
+                        overlay.style.opacity = "0";
+                      }
+                    
+                      // Remove the "animating" class from the <html> element
+                      document.querySelector("html").classList.remove("animating");
+                    }
                     function pageTransition() {
                       document.querySelector("html").classList.add("animating");
                       // GSAP
@@ -11790,7 +11816,7 @@ ${o2(r)}`),
                           console.log("Element 1",typeof(element1))
                           console.log("Element ",typeof(element));
                           replaceableDiv.className="content-wrapper second"
-                          element1.insertBefore(replaceableDiv.cloneNode(true),element1.firstChild)
+                          element1.appendChild(replaceableDiv.cloneNode(true))
                       })
                       .catch((error) => console.error(error))
                       .finally(() => {
