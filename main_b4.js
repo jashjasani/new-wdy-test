@@ -7230,6 +7230,7 @@
             );
           },
           s9 = function (t) {
+            console.log(t);
             return t.getBoundingClientRect();
           },
           sZ = { body: document.body, menu: sW(".js-clip-menu") },
