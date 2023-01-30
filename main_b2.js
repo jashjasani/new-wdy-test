@@ -11715,8 +11715,7 @@ ${o2(r)}`),
                     let nextPageLink = this.text.getAttribute("data-link");
                     function setState(link) {
                       document.title = nextPageLink;
-                      let data = document.documentElement.outerHTML
-                      window.history.pushState(data,'',link);
+                      window.history.pushState('',window.location.hostname);
                     }
                     function updatePage() {
                       // Set the scroll position to the top of the page
