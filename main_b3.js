@@ -11807,7 +11807,7 @@ ${o2(r)}`),
                         let pageTitle =
                           responseDoc.querySelector("title").textContent;
                         document.title = pageTitle;
-                        setState(window.location.href);
+                        // setState(window.location.href);
                         document.querySelector("#workStyles").remove()
                         console.log(typeof(replaceableDiv));
                         console.log(replaceableDiv);
