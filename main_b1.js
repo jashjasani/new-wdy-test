@@ -11715,7 +11715,7 @@ ${o2(r)}`),
                     let nextPageLink = this.text.getAttribute("data-link");
                     function setState(link) {
                       document.title = nextPageLink;
-                      data = document.documentElement.outerHTML
+                      let data = document.documentElement.outerHTML
                       window.history.pushState(data,'',link);
                     }
                     function updatePage() {
