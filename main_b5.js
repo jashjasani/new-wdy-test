@@ -11981,6 +11981,7 @@ ${o2(r)}`),
                   n = e.y,
                   i = e.click,
                   s = e.target;
+                  console.log(r,n,i,s);
                 if (
                   (t.isDragging && (t.isDragging = !1),
                   i && s.closest(".js-grid"))
