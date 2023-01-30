@@ -11711,12 +11711,11 @@ ${o2(r)}`),
                       ((this.focused = !0),
                       (this.mesh.frustumCulled = !1),
                       (this.mesh.renderOrder = 10),
-                      aX(aq(".js-grid-focused")),
-                      console.log(this.text.innerText));
-                    let nextPageLink = this.text.innerText;
-                    function setState(html, pageTitle, link) {
+                      aX(aq(".js-grid-focused")));
+                    let nextPageLink = this.text.getAttribute("data-link");
+                    function setState(link) {
                       document.title = pageTitle;
-                      window.history.pushState({ html: html, pageTitle: pageTitle }, "", link);
+                      window.history.pushState(link);
                     }
                     function updatePage() {
                       // Set the scroll position to the top of the page
@@ -11808,12 +11807,8 @@ ${o2(r)}`),
                         let pageTitle =
                           responseDoc.querySelector("title").textContent;
                         document.title = pageTitle;
-                        setState(
-                          replaceableDiv.innerHTML,
-                          pageTitle,
-                          nextPageLink
-                        );
-                        //document.querySelector("#workStyles").remove()
+                        setState(window.location.href);
+                        document.querySelector("#workStyles").remove()
                         console.log(typeof(replaceableDiv));
                         console.log(replaceableDiv);
                         //let element = replaceableDiv.classList.add("second");
