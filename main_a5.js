@@ -11813,7 +11813,7 @@ ${o2(r)}`),
                           pageTitle,
                           nextPageLink
                         );
-                        document.querySelector("#workStyles").remove()
+                        //document.querySelector("#workStyles").remove()
                         console.log(typeof(replaceableDiv));
                         console.log(replaceableDiv);
                         //let element = replaceableDiv.classList.add("second");
