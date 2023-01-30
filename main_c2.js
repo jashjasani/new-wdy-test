@@ -11996,8 +11996,8 @@ ${o2(r)}`),
                       return t.children[0];
                     }),
                     l = t.raycast.intersectBounds(u);
-                    t.focusedTilet = l[0].parent
-                
+                    t.focusedTile = l[0].parent
+                    t.focusedTile.focus()
                     console.log(l.toString());
                     
                   console.log(u),
