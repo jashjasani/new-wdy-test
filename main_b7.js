@@ -11981,6 +11981,7 @@ ${o2(r)}`),
                   n = e.y,
                   i = e.click,
                   s = e.target;
+                  console.log(e);
                   document.elementFromPoint(r, n).click();
                 if (
                   (t.isDragging && (t.isDragging = !1),
@@ -11995,6 +11996,7 @@ ${o2(r)}`),
                       return t.children[0];
                     }),
                     l = t.raycast.intersectBounds(u);
+                    console.log(l);
                   console.log(u),
                     (0 === l.length || t.focusedTile) && t.focused
                       ? (t.focusedTile.blur(), (t.focused = !1), t.fade())
