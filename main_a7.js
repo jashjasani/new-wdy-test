@@ -11714,7 +11714,7 @@ ${o2(r)}`),
                       aX(aq(".js-grid-focused")));
                     let nextPageLink = this.text.getAttribute("data-link");
                     function setState(link) {
-                      document.title = pageTitle;
+                      document.title = nextPageLink;
                       window.history.pushState(link);
                     }
                     function updatePage() {
