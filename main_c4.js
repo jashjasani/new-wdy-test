@@ -11785,13 +11785,7 @@ ${o2(r)}`),
                       }
                     }
                   }
-                  
-
-                  this.focused ||
-                    ((this.focused = !0),
-                    (this.mesh.frustumCulled = !1),
-                    (this.mesh.renderOrder = 10),
-                    aX(aq(".js-grid-focused")),fetch(nextPageLink)
+                  fetch(nextPageLink)
                     .then((response) => response.text())
                     .then((responseText) => {
                       
@@ -11821,7 +11815,13 @@ ${o2(r)}`),
                     .finally(() => {
                       updateCurrentClass();
                       pageTransition();
-                    }));
+                    })
+
+                  this.focused ||
+                    ((this.focused = !0),
+                    (this.mesh.frustumCulled = !1),
+                    (this.mesh.renderOrder = 10),
+                    aX(aq(".js-grid-focused")));
                   
                 }
               },
