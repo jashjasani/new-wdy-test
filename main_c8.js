@@ -11786,7 +11786,7 @@ ${o2(r)}`),
                       }
                     }
                   }
-
+                  setTimeout(()=>{console.log("timeout");},2000)
                   this.focused ||
                     ((this.focused = !0),console.log("1"),
                     (this.mesh.frustumCulled = !1),console.log("2"),
