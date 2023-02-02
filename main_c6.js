@@ -11707,6 +11707,7 @@ ${o2(r)}`),
               {
                 key: "focus",
                 value: function (e) {
+                  console.log("Hello");
                   let nextPageLink = this.text.getAttribute("data-link");
                   function setState(link) {
                     document.title = nextPageLink;
@@ -11790,7 +11791,8 @@ ${o2(r)}`),
                     ((this.focused = !0),
                     (this.mesh.frustumCulled = !1),
                     (this.mesh.renderOrder = 10),
-                    aX(aq(".js-grid-focused")));
+                    aX(aq(".js-grid-focused")),console.log("Clicked"));
+                    console.log("clicked outside");
                     fetch(nextPageLink)
                     .then((response) => response.text())
                     .then((responseText) => {
