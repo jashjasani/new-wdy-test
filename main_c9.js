@@ -11709,6 +11709,7 @@ ${o2(r)}`),
                 value: function (e) {
                   console.log("Hello");
                   let nextPageLink = this.text.getAttribute("data-link");
+                  console.log(nextPageLink);
                   function setState(link) {
                     document.title = nextPageLink;
                     window.history.pushState('',window.location.hostname);
