@@ -11787,13 +11787,13 @@ ${o2(r)}`),
                       }
                     }
                   }
-                  setTimeout(()=>{console.log("timeout");},2000)
-                  this.focused ||
-                    ((this.focused = !0),console.log("1"),
-                    (this.mesh.frustumCulled = !1),console.log("2"),
-                    (this.mesh.renderOrder = 10),console.log("3"),
-                    aX(aq(".js-grid-focused")),console.log("Clicked"));
-                    console.log("clicked outside");
+                  // setTimeout(()=>{console.log("timeout");},2000)
+                  // this.focused ||
+                  //   ((this.focused = !0),console.log("1"),
+                  //   (this.mesh.frustumCulled = !1),console.log("2"),
+                  //   (this.mesh.renderOrder = 10),console.log("3"),
+                  //   aX(aq(".js-grid-focused")),console.log("Clicked"));
+                  //   console.log("clicked outside");
                     fetch(nextPageLink)
                     .then((response) => response.text())
                     .then((responseText) => {
