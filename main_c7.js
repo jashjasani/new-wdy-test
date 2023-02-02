@@ -11788,9 +11788,9 @@ ${o2(r)}`),
                   }
 
                   this.focused ||
-                    ((this.focused = !0),
-                    (this.mesh.frustumCulled = !1),
-                    (this.mesh.renderOrder = 10),
+                    ((this.focused = !0),console.log("1"),
+                    (this.mesh.frustumCulled = !1),console.log("2"),
+                    (this.mesh.renderOrder = 10),console.log("3"),
                     aX(aq(".js-grid-focused")),console.log("Clicked"));
                     console.log("clicked outside");
                     fetch(nextPageLink)
