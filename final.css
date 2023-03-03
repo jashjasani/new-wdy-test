@@ -1294,8 +1294,8 @@ video {
 }
 
 .rounded-t-\[4rem\] {
-	border-top-left-radius: 4rem;
-	border-top-right-radius: 4rem;
+	/* border-top-left-radius: 4rem; */
+	/* border-top-right-radius: 4rem; */
 }
 
 .rounded-b-\[1\.2rem\] {
