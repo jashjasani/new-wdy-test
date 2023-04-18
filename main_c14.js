@@ -11809,15 +11809,15 @@ ${o2(r)}`),
                         responseDoc.querySelector("title").textContent;
                       document.title = pageTitle;
                       // setState(window.location.href);
-                      let embed = document.querySelector(".w-embed")
-                      console.log(embed);
-                      embed.remove()
+                      // let embed = document.querySelector(".w-embed")
+                      // console.log(embed);
+                      // embed.remove()
                       document.querySelector("#workStyles").remove()
                       console.log(typeof(replaceableDiv));
                       console.log(replaceableDiv);
                       //let element = replaceableDiv.classList.add("second");
                       let element1 = document
-                        .querySelector(".main-wrapper")
+                        .querySelector(".w-embed")
                         console.log("Element 1",typeof(element1))
                         
                         replaceableDiv.className="content-wrapper second"
