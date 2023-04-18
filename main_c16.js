@@ -11725,7 +11725,7 @@ ${o2(r)}`),
                     }
                   
                     // Remove the "second" class and add the "first" class to the second .content-wrapper element
-                    var secondContentWrapper = document.querySelector(".content-wrapper.second");
+                    var secondContentWrapper = document.querySelector(".w-embed");
                     if (secondContentWrapper) {
                       secondContentWrapper.classList.remove("second");
                       secondContentWrapper.classList.add("first");
@@ -11817,7 +11817,7 @@ ${o2(r)}`),
                       console.log(replaceableDiv);
                       //let element = replaceableDiv.classList.add("second");
                       let element1 = document
-                        .querySelector(".w-embed")
+                        .querySelector(".main-wrapper")
                         console.log("Element 1",typeof(element1))
                         
                         replaceableDiv.className="content-wrapper second"
