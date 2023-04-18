@@ -11746,7 +11746,7 @@ ${o2(r)}`),
                     let tl = gsap.timeline({
                       onComplete: updatePage,
                     });
-                    tl.from(".content-wrapper.second", {
+                    tl.from(".w-embed", {
                       y: "110vh",
                       delay: 0.2,
                       duration: 0.8,
