@@ -11707,13 +11707,13 @@ ${o2(r)}`),
               {
                 key: "focus",
                 value: function (e) {
-                  console.log("Hello");
                   let nextPageLink = this.text.getAttribute("data-link");
                   console.log(nextPageLink);
                   function setState(link) {
                     document.title = nextPageLink;
                     window.history.pushState('',window.location.hostname);
                   }
+                  
                   function updatePage() {
                     // Set the scroll position to the top of the page
                     window.scrollTo(0, 0);
@@ -11739,9 +11739,7 @@ ${o2(r)}`),
                   
                     // Remove the "animating" class from the <html> element
                     document.querySelector("html").classList.remove("animating");
-                    console.log("Deleting node");
                     let a = document.getElementById("wEmbed").remove()
-                    console.log(a);
                   }
                   function pageTransition() {
                     document.querySelector("html").classList.add("animating");
@@ -11816,8 +11814,6 @@ ${o2(r)}`),
                       // console.log(embed);
                       // embed.remove()
                       document.querySelector("#workStyles").remove()
-                      console.log(typeof(replaceableDiv));
-                      console.log(replaceableDiv);
                       //let element = replaceableDiv.classList.add("second");
                       let element1 = document
                         .querySelector(".main-wrapper")
@@ -11828,8 +11824,8 @@ ${o2(r)}`),
                     })
                     .catch((error) => console.error(error))
                     .finally(() => {
-                      console.log("Hello again");
                       updateCurrentClass();
+                      setState(nextPageLink)
                       pageTransition();
                     })
                 }
