@@ -11816,14 +11816,13 @@ ${o2(r)}`),
                       let element1 = document
                         .querySelector(".main-wrapper")
                         console.log("Element 1",typeof(element1))
-                        console.log("Element ",typeof(element));
+                        document.querySelector(".w-embed").remove()
                         replaceableDiv.className="content-wrapper second"
                         element1.appendChild(replaceableDiv.cloneNode(true))
                     })
                     .catch((error) => console.error(error))
                     .finally(() => {
                       updateCurrentClass();
-                      document.querySelector(".w-embed").remove()
                       pageTransition();
                     })
                 }
