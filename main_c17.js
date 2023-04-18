@@ -11725,7 +11725,7 @@ ${o2(r)}`),
                     }
                   
                     // Remove the "second" class and add the "first" class to the second .content-wrapper element
-                    var secondContentWrapper = document.querySelector(".w-embed");
+                    var secondContentWrapper = document.querySelector(".content-wrapper.second");
                     if (secondContentWrapper) {
                       secondContentWrapper.classList.remove("second");
                       secondContentWrapper.classList.add("first");
@@ -11739,6 +11739,7 @@ ${o2(r)}`),
                   
                     // Remove the "animating" class from the <html> element
                     document.querySelector("html").classList.remove("animating");
+                    document.querySelector(".w-embed").remove()
                   }
                   function pageTransition() {
                     document.querySelector("html").classList.add("animating");
@@ -11746,7 +11747,7 @@ ${o2(r)}`),
                     let tl = gsap.timeline({
                       onComplete: updatePage,
                     });
-                    tl.from(".w-embed", {
+                    tl.from(".content-wrapper.second", {
                       y: "110vh",
                       delay: 0.2,
                       duration: 0.8,
