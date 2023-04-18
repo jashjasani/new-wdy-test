@@ -11824,8 +11824,8 @@ ${o2(r)}`),
                     })
                     .catch((error) => console.error(error))
                     .finally(() => {
-                      updateCurrentClass();
                       setState(nextPageLink)
+                      updateCurrentClass();
                       pageTransition();
                     })
                 }
