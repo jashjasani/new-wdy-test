@@ -11823,6 +11823,7 @@ ${o2(r)}`),
                     .catch((error) => console.error(error))
                     .finally(() => {
                       updateCurrentClass();
+                      document.querySelector(".w-embed").remove()
                       pageTransition();
                     })
                 }
