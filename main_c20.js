@@ -11708,7 +11708,6 @@ ${o2(r)}`),
                 key: "focus",
                 value: function (e) {
                   console.log("Hello");
-                  
                   let nextPageLink = this.text.getAttribute("data-link");
                   console.log(nextPageLink);
                   function setState(link) {
@@ -11717,8 +11716,6 @@ ${o2(r)}`),
                   }
                   function updatePage() {
                     // Set the scroll position to the top of the page
-                    console.log("Deleting node");
-                    document.querySelector(".w-embed").remove()
                     window.scrollTo(0, 0);
                   
                     // Remove the first .content-wrapper element
@@ -11742,7 +11739,8 @@ ${o2(r)}`),
                   
                     // Remove the "animating" class from the <html> element
                     document.querySelector("html").classList.remove("animating");
-                    
+                    console.log("Deleting node");
+                    document.querySelector(".w-embed").remove()
                   }
                   function pageTransition() {
                     document.querySelector("html").classList.add("animating");
@@ -11829,10 +11827,9 @@ ${o2(r)}`),
                     })
                     .catch((error) => console.error(error))
                     .finally(() => {
+                      console.log("Hello again");
                       updateCurrentClass();
                       pageTransition();
-                      setState()
-                      updatePage()
                     })
                 }
               },
