@@ -11740,7 +11740,7 @@ ${o2(r)}`),
                     // Remove the "animating" class from the <html> element
                     document.querySelector("html").classList.remove("animating");
                     console.log("Deleting node");
-                    let a = document.querySelector(".w-embed").remove()
+                    let a = document.getElementById("wEmbed").remove()
                     console.log(a);
                   }
                   function pageTransition() {
